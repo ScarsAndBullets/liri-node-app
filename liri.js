@@ -23,14 +23,6 @@ for (var i = 3; i < process.argv.length; i++) {
 var liriArgTwo = liriArgArray.join(" ");
 //console.log(`LiriArgOne = ${liriArgOne}\nLiriArgTwo = ${liriArgTwo}\n`);
 
-//PSEUDOCODE!!!
-//4 COMMANDS:
-// - concert-this (Axios and Bands in Town API, see HW .md file)
-// - spotify-this-song
-// - movie-this
-// - do-what-it-says
-//
-
 //concert-this
 function concertThis(artist) {
 	axios
@@ -65,17 +57,30 @@ function movieThis(movie) {
 	axios
 		.get(`http://www.omdbapi.com/?apikey=${yourKey}&t=${movie}`)
 		.then(function(response) {
-			//console.log(response.data);
-			console.log(response.data.Title);
-			console.log(response.data.Year);
-			console.log(response.data.Ratings[0].Source);
-			console.log(response.data.Ratings[0].Value);
-			console.log(response.data.Ratings[1].Source);
-			console.log(response.data.Ratings[1].Value);
-			console.log(response.data.Country);
-			console.log(response.data.Language);
-			console.log(response.data.Plot);
-			console.log(response.data.Actors);
+			console.log(
+				"\n-------------------------------------------------------\n"
+			);
+			console.log("* Title: ", response.data.Title);
+			console.log("* Year released: ", response.data.Year);
+			console.log(
+				"*",
+				response.data.Ratings[0].Source,
+				"rating:",
+				response.data.Ratings[0].Value
+			);
+			console.log(
+				"*",
+				response.data.Ratings[1].Source,
+				"rating:",
+				response.data.Ratings[1].Value
+			);
+			console.log("* Production country: ", response.data.Country);
+			console.log("* Languages: ", response.data.Language);
+			console.log("* Plot: ", response.data.Plot);
+			console.log("* Actors: ", response.data.Actors);
+			console.log(
+				"\n-------------------------------------------------------\n"
+			);
 		})
 		.catch(function(error) {
 			console.log(error);
