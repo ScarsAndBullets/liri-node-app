@@ -38,7 +38,7 @@ function concertThis(artist) {
 			`https://rest.bandsintown.com/artists/${artist}/events?app_id=codingbootcamp`
 		)
 		.then(function(response) {
-			console.log(response);
+			console.log(response.data);
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -50,8 +50,9 @@ function spotifyThisSong(track) {
 	spotify
 		.search({ type: "track", query: track, limit: 1 })
 		.then(function(response) {
-			console.log(JSON.stringify(response));
-			console.log(response.data);
+			console.log(response);
+			console.log(`\n----------\n`);
+			console.log(response.tracks);
 		})
 		.catch(function(err) {
 			console.log(err);
@@ -64,7 +65,17 @@ function movieThis(movie) {
 	axios
 		.get(`http://www.omdbapi.com/?apikey=${yourKey}&t=${movie}`)
 		.then(function(response) {
-			console.log(response);
+			//console.log(response.data);
+			console.log(response.data.Title);
+			console.log(response.data.Year);
+			console.log(response.data.Ratings[0].Source);
+			console.log(response.data.Ratings[0].Value);
+			console.log(response.data.Ratings[1].Source);
+			console.log(response.data.Ratings[1].Value);
+			console.log(response.data.Country);
+			console.log(response.data.Language);
+			console.log(response.data.Plot);
+			console.log(response.data.Actors);
 		})
 		.catch(function(error) {
 			console.log(error);
