@@ -42,9 +42,35 @@ function spotifyThisSong(track) {
 	spotify
 		.search({ type: "track", query: track, limit: 1 })
 		.then(function(response) {
-			console.log(response);
-			console.log(`\n----------\n`);
-			console.log(response.tracks);
+			console.log(
+				"\n-------------------------------------------------------\n"
+			);
+			// Artist(s)
+			// console.log(
+			// 	`\n----------\nresponse.tracks.items[0].artists[0].name`
+			// );
+			console.log(
+				`* Artist(s):`,
+				response.tracks.items[0].artists[0].name
+			);
+
+			// The song's name
+			// console.log(`\n----------\nresponse.tracks.items[0].name`);
+			console.log(`\n* Song name:`, response.tracks.items[0].name);
+
+			// A preview link of the song from Spotify
+			// console.log(`\n----------\nresponse.tracks.items[0].preview_url`);
+			console.log(
+				`\n* Spotify song preview link:`,
+				response.tracks.items[0].preview_url
+			);
+
+			// The album that the song is frome
+			// console.log(`\n----------\nresponse.tracks.items[0].album.name`);
+			console.log(`\n* Album:`, response.tracks.items[0].album.name);
+			console.log(
+				"\n-------------------------------------------------------\n"
+			);
 		})
 		.catch(function(err) {
 			console.log(err);
@@ -57,27 +83,28 @@ function movieThis(movie) {
 	axios
 		.get(`http://www.omdbapi.com/?apikey=${yourKey}&t=${movie}`)
 		.then(function(response) {
+			// console.log(response.data);
 			console.log(
 				"\n-------------------------------------------------------\n"
 			);
 			console.log("* Title: ", response.data.Title);
-			console.log("* Year released: ", response.data.Year);
+			console.log("\n* Year released: ", response.data.Year);
 			console.log(
-				"*",
+				"\n*",
 				response.data.Ratings[0].Source,
 				"rating:",
 				response.data.Ratings[0].Value
 			);
 			console.log(
-				"*",
+				"\n*",
 				response.data.Ratings[1].Source,
 				"rating:",
 				response.data.Ratings[1].Value
 			);
-			console.log("* Production country: ", response.data.Country);
-			console.log("* Languages: ", response.data.Language);
-			console.log("* Plot: ", response.data.Plot);
-			console.log("* Actors: ", response.data.Actors);
+			console.log("\n* Production country: ", response.data.Country);
+			console.log("\n* Languages: ", response.data.Language);
+			console.log("\n* Plot: ", response.data.Plot);
+			console.log("\n* Actors: ", response.data.Actors);
 			console.log(
 				"\n-------------------------------------------------------\n"
 			);
