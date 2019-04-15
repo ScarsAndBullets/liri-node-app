@@ -3,25 +3,19 @@ require("dotenv").config();
 //console.log(process.env);
 
 var axios = require("axios");
+var moment = require("moment");
 
 var keys = require("./keys");
-
-//constructor function for spotify keys
 var Spotify = require("node-spotify-api");
-
-//pull in spotify keys for axios call
 var spotify = new Spotify(keys.spotify);
-//console.log(spotify);
 
-//Store first argument
+//Handle CLI arguments
 var liriArgOne = process.argv[2];
-//Parse and store 2nd Argument
 var liriArgArray = [];
 for (var i = 3; i < process.argv.length; i++) {
 	liriArgArray.push(process.argv[i]);
 }
 var liriArgTwo = liriArgArray.join(" ");
-//console.log(`LiriArgOne = ${liriArgOne}\nLiriArgTwo = ${liriArgTwo}\n`);
 
 //concert-this
 function concertThis(artist) {
@@ -30,12 +24,46 @@ function concertThis(artist) {
 			`https://rest.bandsintown.com/artists/${artist}/events?app_id=codingbootcamp`
 		)
 		.then(function(response) {
-			console.log(response.data);
+			console.log(
+				"\n-------------------------------------------------------\n"
+			);
+
+			for (var i = 0; i < response.data.length; i++) {
+				//artist lineup
+				let lineup = [];
+				for (var j = 0; j < response.data[i].lineup.length; j++) {
+					lineup.push(response.data[i].lineup[j]);
+				}
+				console.log(`Band lineup:`, lineup.join(", "));
+				console.log(`Venue name:`, response.data[i].venue.name);
+				console.log(
+					`Location`,
+					response.data[i].venue.city,
+					response.data[i].venue.country
+				);
+				console.log(
+					`Date:`,
+					moment(response.data[i].datetime).format("l")
+				);
+
+				console.log(
+					"\n-------------------------------------------------------\n"
+				);
+			}
+
+			//for (var i = 0; i < response.data.length; i++) {}
+
+			// Name of the venue
+			// Venue location
+			// Date of the Event (use moment to format this as "MM/DD/YYYY")
 		})
 		.catch(function(error) {
 			console.log(error);
 		});
 }
+
+// NEED TO ADD
+// 'If no song is provided then your program will default to "The Sign" by Ace of Base.'
 
 //spotify-this-song
 function spotifyThisSong(track) {
