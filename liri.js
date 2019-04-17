@@ -17,6 +17,8 @@ var divider = "\n-------------------------------------------------------\n";
 var command;
 var term;
 
+inqOne();
+
 //concert-this
 function concertThis(artist) {
 	if (!artist) {
@@ -31,6 +33,7 @@ function concertThis(artist) {
 				console.log(
 					`"${term}" doesn't appear to be touring currently.`
 				);
+				inqTwo();
 			} else {
 				console.log(divider);
 				// loop for all venues
@@ -58,15 +61,16 @@ function concertThis(artist) {
 					console.log(
 						`Date: ${moment(response.data[i].datetime).format("l")}`
 					);
-
 					console.log(divider);
 				}
+				inqOne();
 			}
 		})
 		.catch(function(error) {
 			console.log(
 				`"${term}" isn't in the www.bandsintown.com database. Try a different band.`
 			);
+			inqTwo();
 			// console.log(error);
 		});
 }
@@ -106,11 +110,13 @@ function spotifyThisSong(track) {
 			// The album that the song is frome
 			console.log(`\n* Album:`, response.tracks.items[0].album.name);
 			console.log(divider);
+			inqOne();
 		})
 		.catch(function(err) {
 			console.log(
 				`"${term}" could not be found, try a different song title.`
 			);
+			inqTwo();
 			// console.log(err);
 		});
 }
@@ -132,6 +138,7 @@ function movieThis(movie) {
 				console.log(
 					`"${term}" could not be found, try a different movie title.`
 				);
+				inqTwo();
 			} else {
 				console.log(divider);
 				console.log("* Title: ", response.data.Title);
@@ -153,6 +160,7 @@ function movieThis(movie) {
 				console.log("\n* Plot: ", response.data.Plot);
 				console.log("\n* Actors: ", response.data.Actors);
 				console.log(divider);
+				inqOne();
 			}
 		})
 		.catch(function(error) {
@@ -166,40 +174,48 @@ function doWhatItSays() {
 		command = data.split(",")[0];
 		term = data.split(",")[1];
 		main();
+		inqOne();
 	});
 }
 
-inquirer
-	.prompt({
-		type: "list",
-		name: "command",
-		message: "Choose a LIRI command:",
-		choices: [
-			"Look up concerts for a band",
-			"Look up a song on Spotify",
-			"Look up a movie",
-			"Do what random.txt says"
-		]
-	})
-	.then(answers => {
-		switch (answers.command) {
-			case "Look up concerts for a band":
-				command = "concert-this";
-				inqTwo();
-				break;
-			case "Look up a song on Spotify":
-				command = "spotify-this-song";
-				inqTwo();
-				break;
-			case "Look up a movie":
-				command = "movie-this";
-				inqTwo();
-				break;
-			case "Do what random.txt says":
-				doWhatItSays();
-				break;
-		}
-	});
+function inqOne() {
+	command = "";
+	term = "";
+	inquirer
+		.prompt({
+			type: "list",
+			name: "command",
+			message: "Choose a LIRI command:",
+			choices: [
+				"Look up concerts for a band",
+				"Look up a song on Spotify",
+				"Look up a movie",
+				"Do what random.txt says",
+				"Exit LIRI"
+			]
+		})
+		.then(answers => {
+			switch (answers.command) {
+				case "Look up concerts for a band":
+					command = "concert-this";
+					inqTwo();
+					break;
+				case "Look up a song on Spotify":
+					command = "spotify-this-song";
+					inqTwo();
+					break;
+				case "Look up a movie":
+					command = "movie-this";
+					inqTwo();
+					break;
+				case "Do what random.txt says":
+					doWhatItSays();
+					break;
+				case "Exit LIRI":
+					break;
+			}
+		});
+}
 
 function inqTwo() {
 	inquirer
