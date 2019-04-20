@@ -74,7 +74,7 @@ This will bring up the following prompt:
 ![LIRI PROMPT](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/NODE_LIRI.png?raw=true)
 
 
-## Video Deomonstratin of the App - testing input validation
+## Video Deomonstration of the App - testing input validation
 
 [Short demo video of the app](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/LIRI_demo.mov)
 
