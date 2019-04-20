@@ -76,7 +76,7 @@ This will bring up the following prompt:
 
 ## Video Demonstration of the App - testing input validation
 
-[Short demo video of the app](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/NODE_LIRI.png?raw=true)
+[Short demo video of the app](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/LIRI_demo.mov?raw=true)
 
 ## Built With
 
