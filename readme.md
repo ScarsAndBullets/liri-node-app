@@ -6,14 +6,14 @@ The programming of LIRI was designed to fulfill basic academic requirements for 
 
 Start by cloning the LIRI repo to a chosen directory on your system:
 ```
-$ git clone git@github.com:ScarsAndBullets/liri-node-app.git
+$  git clone git@github.com:ScarsAndBullets/liri-node-app.git
 ```
 Once you have successfully cloned the repository to your system, ensure that you are running NODE and NODE Package Manager (NPM). Use the following commands to see which version of NODE and NPM you are running.
 ```
-$ node -v
+$  node -v
 ```
 ```
-$ npm -v
+$  npm -v
 ```
 NPM will refer to the `package.json` file to ensure that the correct versions of the required node packages are installed prior to
 
@@ -35,63 +35,52 @@ In order to run LIRI:
 
     * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
 
-    * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need to place them in the `.env` file we'll create during installation.
+    * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need to place them in the `.env` file we'll create during installation. The `.env` file uses the [DOTENV module](https://www.npmjs.com/package/dotenv) that will store your API keys as a local environmental variable.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+1. At this point, you should have cloned the LIRI repo to a directory on your local machine and verifief that you have NODE and NPM installed.
+2. Install all the necessary NODE moduels to run LIRI - from the liri-node-app directory, run:
 ```
-Give the example
+$  npm i
+```
+![NPM I](https://octodex.github.com/images/yaktocat.png)
+
+3. Create the `.env` file to store your Spotify API keys, then open the `.env` file:
+```
+$  touch .env
+```
 ```
 
-And repeat
-
+$  code .env
 ```
-until finished
+or
 ```
+$  edit .env
+```
+4. Store your Spotify API keys in the `.env` file in this format:
+```
+# Spotify API keys
 
-End with an example of getting some data out of the system or using it for a little demo
+SPOTIFY_ID=YOUR ID KEY
+SPOTIFY_SECRET=YOUR SECRET KEY
+```
+5. If you've succesfully installed the `liri-node-app`, you should be able to run the app:
+```
+$  node liri
+```
+This will bring up the following prompt:
+
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 -   [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 -   [Maven](https://maven.apache.org/) - Dependency Management
 -   [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
