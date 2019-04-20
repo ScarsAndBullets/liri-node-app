@@ -44,7 +44,7 @@ In order to run LIRI:
 ```
 $  npm i
 ```
-![NPM I](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/NPM_I.png)
+![NPM I](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/NPM_I.png?raw=true)
 3. Create the `.env` file to store your Spotify API keys, then open the `.env` file:
 ```
 $  touch .env
@@ -64,17 +64,17 @@ $  edit .env
 SPOTIFY_ID=YOUR ID KEY
 SPOTIFY_SECRET=YOUR SECRET KEY
 ```
-![ENV API KEYS](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/ENV_API-KEYS.png)
+![ENV API KEYS](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/ENV_API_KEYS.png?raw=true)
 
 5. If you've succesfully installed the `liri-node-app`, you should be able to run the app:
 ```
 $  node liri
 ```
 This will bring up the following prompt:
-![LIRI PROMPT](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/NODE_LIRI.png)
+![LIRI PROMPT](https://github.com/ScarsAndBullets/liri-node-app/blob/master/images/NODE_LIRI.png?raw=true)
 
 
-## Running the tests
+## Video Deomonstratin of the App - testing input validation
 
 [Short demo video of the app](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/LIRI_demo.mov)
 
