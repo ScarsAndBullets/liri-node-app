@@ -44,8 +44,7 @@ In order to run LIRI:
 ```
 $  npm i
 ```
-![NPM I](https://octodex.github.com/images/yaktocat.png)
-
+![NPM I](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/NPM_I.png)
 3. Create the `.env` file to store your Spotify API keys, then open the `.env` file:
 ```
 $  touch .env
@@ -65,35 +64,32 @@ $  edit .env
 SPOTIFY_ID=YOUR ID KEY
 SPOTIFY_SECRET=YOUR SECRET KEY
 ```
+![ENV API KEYS](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/ENV_API-KEYS.png)
+
 5. If you've succesfully installed the `liri-node-app`, you should be able to run the app:
 ```
 $  node liri
 ```
 This will bring up the following prompt:
+![LIRI PROMPT](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/NODE_LIRI.png)
 
 
 ## Running the tests
 
-
+[Short demo video of the app](https://github.com/ScarsAndBullets/liri-node-app/tree/master/images/LIRI_demo.mov)
 
 ## Built With
 
--   [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
--   [Maven](https://maven.apache.org/) - Dependency Management
--   [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+-   [node-spotify-api](https://www.npmjs.com/package/node-spotify-api)
+-   [dotenv](https://www.npmjs.com/package/dotenv)
+-   [axios](https://www.npmjs.com/search?q=axios)
+-   [Spotify API](https://developer.spotify.com/documentation/web-api/)
+-   [Bands In Town API](https://manager.bandsintown.com/support/bandsintown-api)
+-   [OMDB API](http://www.omdbapi.com/)
+-   [NODE.JS](https://nodejs.org/en/)
+-   [NODE Package Manager](https://www.npmjs.com/)
+-   [Moment](https://www.npmjs.com/package/moment)
 
 ## Authors
 
--   **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
--   Hat tip to anyone whose code was used
--   Inspiration
--   etc
+-   **Stewart Brough** - _Initial work_ - [ScarsAndBullets](https://github.com/ScarsAndBullets)
